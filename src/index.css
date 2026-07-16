@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: inherit;
+}
+
+:root {
+  /* Colors */
+  --color-dark: #14243B;       /* deep blue-slate, sidebar/dark surfaces */
+  --color-primary: #3B8FD4;    /* light blue, primary actions */
+  --color-secondary: #6BB6F0;  /* softer blue, secondary accents */
+  --color-accent: #14B8A6;     /* teal, used sparingly for highlights */
+  --color-ink: #1F2937;
+  --color-mute: #7C8B99;
+  --color-card: #F4F8FB;       /* light blue-tinted card background */
+  --color-white: #FFFFFF;
+  --color-danger: #D3453C;
+  --color-danger-bg: #FCEBEA;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FEF3E2;
+  --color-safe: #14B8A6;
+  --color-safe-bg: #E3F7F4;
+
+  /* Typography */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 0.95rem;
+  --font-size-md: 1.1rem;
+  --font-size-lg: 1.4rem;
+  --font-size-xl: 1.9rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* Radius + shadow */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --shadow-card: 0 10px 30px rgba(20, 36, 59, 0.08);
+  --shadow-button: 0 4px 14px rgba(59, 143, 212, 0.28);
+}
+
+[data-theme="dark"] {
+  --color-white: #10181F;
+  --color-ink: #E7EEF3;
+  --color-mute: #8CA0AE;
+  --color-card: #1A2530;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-ink);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
