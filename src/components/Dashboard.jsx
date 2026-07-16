@@ -1,6 +1,6 @@
 import "./Dashboard.css";
 
-function Dashboard({ user }) {
+function Dashboard({ user, onDeleteClick }) {
   const displayUser = user || {
     name: "John Doe",
     initials: "JD",
@@ -47,10 +47,7 @@ function Dashboard({ user }) {
           </div>
         </div>
 
-        <button
-          className="dashboard-delete-button"
-          onClick={() => alert("Delete account flow not built yet")}
-        >
+        <button className="dashboard-delete-button" onClick={onDeleteClick}>
           Delete Account
         </button>
       </div>

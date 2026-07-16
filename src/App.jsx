@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Sidebar from "./components/NavBar";
+import Sidebar from "./components/Sidebar";
 import TopBar from "./components/TopBar";
 import AuthPage from "./components/AuthPage";
 import Overlay from "./components/Overlay";
@@ -9,6 +9,9 @@ import Onboarding from "./components/Onboarding";
 import LanguageSelect from "./components/LanguageSelect";
 import PolicyLibrary from "./components/PolicyLibrary";
 import SettingsScreen from "./components/SettingsScreen";
+import UploadModal from "./components/UploadModal";
+import DeleteAccountModal from "./components/DeleteAccountModal";
+import HelpScreen from "./components/HelpScreen";
 
 function getInitials(name) {
   const parts = name.trim().split(" ").filter(Boolean);
@@ -23,7 +26,10 @@ function App() {
   const [cardStatus, setCardStatus] = useState(null);
 
   const [user, setUser] = useState(null);
-  const [authView, setAuthView] = useState(null); // null | "login" | "signup"
+  const [authView, setAuthView] = useState(null);
+
+  const [showUploadModal, setShowUploadModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const [showLanguageSelect, setShowLanguageSelect] = useState(() => {
     return !localStorage.getItem("stratum_language");
@@ -38,11 +44,8 @@ function App() {
   const handleLanguageContinue = (languageCode) => {
     localStorage.setItem("stratum_language", languageCode);
     setShowLanguageSelect(false);
-
     const onboardingSeen = localStorage.getItem("stratum_onboarding_seen");
-    if (!onboardingSeen) {
-      setShowOnboarding(true);
-    }
+    if (!onboardingSeen) setShowOnboarding(true);
   };
 
   const handleOnboardingFinish = () => {
@@ -52,9 +55,7 @@ function App() {
 
   const handleSummarizeClick = () => {
     setCardStatus("loading");
-    setTimeout(() => {
-      setCardStatus("success");
-    }, 1500);
+    setTimeout(() => setCardStatus("success"), 1500);
   };
 
   const handleAuthSubmit = ({ name }) => {
@@ -62,8 +63,12 @@ function App() {
     setAuthView(null);
   };
 
-  const handleLogout = () => {
+  const handleLogout = () => setUser(null);
+
+  const handleAccountDeleted = () => {
+    setShowDeleteModal(false);
     setUser(null);
+    setCurrentView("home");
   };
 
   if (authView) {
@@ -79,17 +84,21 @@ function App() {
 
   return (
     <div>
-      {showLanguageSelect && (
-        <LanguageSelect onContinue={handleLanguageContinue} />
-      )}
-
+      {showLanguageSelect && <LanguageSelect onContinue={handleLanguageContinue} />}
       {showOnboarding && <Onboarding onFinish={handleOnboardingFinish} />}
+      {showUploadModal && <UploadModal onClose={() => setShowUploadModal(false)} />}
+      {showDeleteModal && (
+        <DeleteAccountModal
+          onClose={() => setShowDeleteModal(false)}
+          onConfirmDelete={handleAccountDeleted}
+        />
+      )}
 
       <div style={{ display: "flex" }}>
         <Sidebar
           currentView={currentView}
           onNavigate={setCurrentView}
-          onUploadClick={() => alert("Upload flow not built yet")}
+          onUploadClick={() => setShowUploadModal(true)}
         />
 
         <div style={{ flex: 1 }}>
@@ -100,17 +109,15 @@ function App() {
             onLogoutClick={handleLogout}
           />
 
-          {currentView === "home" && <Dashboard user={user} />}
+          {currentView === "home" && (
+            <Dashboard user={user} onDeleteClick={() => setShowDeleteModal(true)} />
+          )}
 
           {currentView === "compare" && <PolicyLibrary />}
 
           {currentView === "settings" && <SettingsScreen />}
 
-          {currentView === "help" && (
-            <div style={{ padding: "var(--space-xl)", color: "var(--color-mute)" }}>
-              Help screen not built yet.
-            </div>
-          )}
+          {currentView === "help" && <HelpScreen />}
 
           {currentView === "demo" && (
             <div style={{ padding: "var(--space-lg)", position: "relative" }}>
