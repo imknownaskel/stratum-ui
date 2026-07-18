@@ -5,31 +5,28 @@
 }
 
 .overlay-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  white-space: nowrap;
+  width: max-content;
+  max-width: none;
+  background: var(--color-primary);
   color: var(--color-white);
   border: none;
   border-radius: 999px;
-  padding: 10px 18px;
+  padding: 4px 12px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
+  line-height: 1.4;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(2, 128, 144, 0.35);
+  box-shadow: var(--shadow-button);
   transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-}
-
-.overlay-button::before {
-  content: "✨";
-  font-size: 13px;
 }
 
 .overlay-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(2, 128, 144, 0.45);
   filter: brightness(1.05);
 }
 

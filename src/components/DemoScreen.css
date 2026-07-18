@@ -1,0 +1,46 @@
+.demo-screen {
+  position: relative;
+  padding: var(--space-xl) var(--space-lg);
+  font-family: var(--font-body);
+}
+
+.demo-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: 0 0 4px 0;
+}
+
+.demo-hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-mute);
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.demo-policy-card {
+  max-width: 560px;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  user-select: text;
+}
+
+.demo-policy-source {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.demo-policy-text {
+  font-size: var(--font-size-base);
+  color: var(--color-ink);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.demo-policy-text::selection {
+  background: rgba(59, 143, 212, 0.25);
+}

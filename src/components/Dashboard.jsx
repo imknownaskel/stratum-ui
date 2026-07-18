@@ -1,11 +1,25 @@
 import "./Dashboard.css";
 
-function Dashboard({ user, onDeleteClick }) {
-  const displayUser = user || {
-    name: "John Doe",
-    initials: "JD",
-    email: "john.doe@example.com",
-  };
+function Dashboard({ user, onDeleteClick, onLoginClick }) {
+  if (!user) {
+    return (
+      <div className="dashboard">
+        <h1 className="dashboard-title">Dashboard</h1>
+
+        <div className="dashboard-signed-out-card">
+          <div className="dashboard-signed-out-icon">🔒</div>
+          <h2 className="dashboard-signed-out-title">Not signed in yet</h2>
+          <p className="dashboard-signed-out-description">
+            Log in or create an account to see your documents, scanned
+            policies, and account details here.
+          </p>
+          <button className="dashboard-signed-out-button" onClick={onLoginClick}>
+            Log in / Sign up
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const stats = {
     documents: 22,
@@ -19,12 +33,12 @@ function Dashboard({ user, onDeleteClick }) {
       <h1 className="dashboard-title">Dashboard</h1>
 
       <div className="dashboard-profile-card">
-        <div className="dashboard-avatar">{displayUser.initials}</div>
+        <div className="dashboard-avatar">{user.initials}</div>
 
         <div className="dashboard-profile-info">
-          <span className="dashboard-name">{displayUser.name}</span>
+          <span className="dashboard-name">{user.name}</span>
           <span className="dashboard-email">
-            {displayUser.email || "No email on file (demo account)"}
+            {user.email || "No email on file (demo account)"}
           </span>
         </div>
 
