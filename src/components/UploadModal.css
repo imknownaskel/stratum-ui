@@ -1,7 +1,9 @@
 .upload-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(20, 36, 59, 0.72);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +69,7 @@
 }
 
 .upload-dropzone-icon {
-  font-size: 2rem;
+  color: var(--color-primary);
   margin-bottom: var(--space-sm);
 }
 
@@ -145,4 +147,29 @@
   opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
+}
+.upload-feedback {
+  margin: 0 0 var(--space-sm);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  line-height: 1.45;
+}
+
+.upload-feedback--error {
+  color: #9f2530;
+  background: #fff0f1;
+  border: 1px solid #f2c8cc;
+}
+
+.upload-feedback--success {
+  color: #00684f;
+  background: #ecfff8;
+  border: 1px solid #bfead9;
+}
+
+.upload-modal-close:disabled,
+.upload-file-remove:disabled {
+  cursor: wait;
+  opacity: 0.55;
 }

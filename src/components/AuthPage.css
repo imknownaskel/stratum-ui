@@ -207,3 +207,75 @@
     padding: var(--space-lg) var(--space-md);
   }
 }
+.auth-feedback {
+  margin: -2px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.auth-feedback--error { color: #9f2530; background: #fff0f1; border: 1px solid #f2c8cc; }
+.auth-feedback--success { color: #00684f; background: #ecfff8; border: 1px solid #bfead9; }
+.auth-submit:disabled { cursor: wait; opacity: .68; }
+
+.auth-mfa-card {
+  max-width: 470px;
+}
+
+.auth-mfa-enrollment {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.auth-mfa-steps {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--color-mute);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.auth-mfa-qr {
+  width: 180px;
+  height: 180px;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.auth-mfa-secret {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  color: var(--color-mute);
+  font-size: 11px;
+  text-align: center;
+}
+
+.auth-mfa-secret code {
+  overflow-wrap: anywhere;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--color-card);
+  color: var(--color-ink);
+  font-size: 12px;
+}
+
+.auth-mfa-code {
+  text-align: center;
+  letter-spacing: 0.35em;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.auth-mfa-cancel {
+  border: 0;
+  background: transparent;
+  color: var(--color-mute);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
