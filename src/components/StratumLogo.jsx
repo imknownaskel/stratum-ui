@@ -1,4 +1,6 @@
+import { useI18n } from "../i18n/context";
 function StratumLogo({ size = 28, showText = true, textSize = 16, showTagline = false }) {
+  const { t } = useI18n();
   return (
     <div style={{ display: "flex", alignItems: "center", gap: size * 0.4 }}>
       <div
@@ -26,8 +28,8 @@ function StratumLogo({ size = 28, showText = true, textSize = 16, showTagline = 
             Stratum
           </span>
           {showTagline && (
-            <span style={{ fontFamily: "var(--font-body)", fontSize: 10, fontWeight: 600, letterSpacing: "0.06em", color: "#7C8B9C", textTransform: "uppercase" }}>
-              Compliance Intelligence
+            <span style={{ fontFamily: "var(--font-body)", fontSize: 9, fontWeight: 600, letterSpacing: "0.04em", maxWidth: 130, color: "#7C8B9C", textTransform: "uppercase" }}>
+              {t("Compliance Intelligence")}
             </span>
           )}
         </div>

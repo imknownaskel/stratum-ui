@@ -339,6 +339,12 @@
   border-radius: 999px;
 }
 
+.settings-save-status {
+  min-width: 42px;
+  color: var(--color-mute);
+  font-size: 11px;
+}
+
 .settings-slider-labels {
   display: flex;
   justify-content: space-between;
@@ -364,4 +370,33 @@
 .settings-slider {
   width: 100%;
   accent-color: var(--color-primary);
+}
+
+.settings-language-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid #E9EEF3;
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  color: var(--color-primary);
+}
+
+.settings-select {
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.settings-field-help {
+  margin: 6px 0 0;
+  color: var(--color-mute);
+  font-size: 12px;
+  line-height: 1.45;
 }
